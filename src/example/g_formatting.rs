@@ -1,4 +1,4 @@
-use std::fmt::{Display, Formatter};
+use std::fmt::{Display, Formatter, UpperHex};
 
 #[test]
 fn one() {
@@ -25,7 +25,13 @@ fn one() {
     }
     impl Display for Color {
         fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-            write!(f, "RGB ({}, {}, {}) {}",self.red,self.green,self.blue,"")
+            write!(f, "RGB ({}, {}, {}) ", self.red, self.green, self.blue)
+        }
+    }
+
+    impl UpperHex for Color {
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f, "{:02X}{:02X}{:02X}", self.red, self.green, self.blue)
         }
     }
 
@@ -42,6 +48,6 @@ fn one() {
         Color { red: 0, green: 0, blue: 0 },
     ].iter() {
         // 在添加了针对 fmt::Display 的实现后，请改用 {} 检验效果。
-        println!("{:?}", *color)
+        println!("{} 0x{:X}", *color, color)
     }
 }
