@@ -1,3 +1,8 @@
+/**
+ * @Author: ZZX
+ * @Description: 显示
+ * @Date: create in 2021/9/6 22:55
+ */
 use std::fmt;
 use std::fmt::Formatter;
 
@@ -48,9 +53,11 @@ fn two() {
     let big_range = MinMax(-300, 300);
     let small_range = MinMax(-3, 3);
 
-    println!("The big range is {big} and the small is {small}",
-             small = small_range,
-             big = big_range);
+    println!(
+        "The big range is {big} and the small is {small}",
+        small = small_range,
+        big = big_range
+    );
 
     let point = Point2D { x: 3.3, y: 7.2 };
 

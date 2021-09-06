@@ -6,3 +6,6 @@ mod e_display;
 mod f_display_list;
 mod g_formatting;
 mod h_primitives;
+mod i_literals_and_operators;
+mod j_tuple;
+mod k_array_and_slice;

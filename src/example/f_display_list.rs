@@ -1,3 +1,8 @@
+/**
+ * @Author: ZZX
+ * @Description: 测试实例 List
+ * @Date: create in 2021/9/6 22:55
+ */
 use std::fmt;
 use std::fmt::Formatter;
 
@@ -11,7 +16,9 @@ fn one() {
             write!(f, "[")?;
 
             for (index, v) in vec.iter().enumerate() {
-                if index != 0 { write!(f, ",")?; }
+                if index != 0 {
+                    write!(f, ",")?;
+                }
                 write!(f, "{}", v)?;
             }
 
@@ -31,16 +38,16 @@ fn practice() {
             write!(f, "[")?;
 
             for (index, value) in vec.iter().enumerate() {
-                if index != 0 { write!(f, ",")? };
+                if index != 0 {
+                    write!(f, ",")?
+                };
                 write!(f, "{}:{}", index, value)?;
             }
-
 
             write!(f, "]")
         }
     }
 
-    let list = List(vec![1,2,3]);
-    println!("{}",list);
-
+    let list = List(vec![1, 2, 3]);
+    println!("{}", list);
 }
