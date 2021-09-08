@@ -53,14 +53,13 @@ fn one() {
 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
-    println!("{}",matrix);
+    println!("{}", matrix);
 
-    println!("Matrix:\n{}",matrix);
+    println!("Matrix:\n{}", matrix);
 
-    fn transpose(matrix:Matrix ) -> Matrix{
-
-        Matrix(matrix.0,matrix.2,matrix.1,matrix.3)
+    fn transpose(matrix: Matrix) -> Matrix {
+        Matrix(matrix.0, matrix.2, matrix.1, matrix.3)
     }
 
-    println!("Transpose:\n{}",transpose(matrix));
+    println!("Transpose:\n{}", transpose(matrix));
 }
