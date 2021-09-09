@@ -21,6 +21,7 @@ struct Pair(i32, f32);
 
 // 带两个字段的接口体
 #[allow(dead_code)]
+#[derive(Debug)]
 struct Point {
     x: f32,
     y: f32,
@@ -28,6 +29,7 @@ struct Point {
 
 // 结构体可以作为另一个结构体的参数
 #[allow(dead_code)]
+#[derive(Debug)]
 struct Rectangle {
     p1: Point,
     p2: Point,
@@ -41,19 +43,19 @@ fn one() {
 
     println!("{:?}", bear);
 
-    let point = Point { x: 0.3, y: 0.4 };
+    let point = Point { x: 2.2, y: 2.4 };
 
     println!("point coordinates: {} {}", point.x, point.y);
 
-    let new_point = Point { x: 0.1, ..point };
+    let new_point = Point { y: 0.2, ..point };
 
     println!("second point: {} {}", new_point.x, new_point.y);
 
     let Point { x: my_x, y: my_y } = point;
 
-    let _rectangle = Rectangle {
+    let rectangle = Rectangle {
         p1: Point { x: my_x, y: my_y },
-        p2: point,
+        p2: Point { x: 0.2, y: 0.4 },
     };
 
     let _nil = Nil;
@@ -62,8 +64,36 @@ fn one() {
 
     println!("pair contains {:?} and {:?}", pair.0, pair.1);
 
-    let Pair(integer,decimal) = pair;
+    let Pair(integer, decimal) = pair;
 
-    println!("pair contains {} and {}",integer,decimal);
+    println!("pair contains {} and {}", integer, decimal);
 
+    fn rect_area(rectangle: Rectangle) {
+        let Point { x: x_1, y: y_1 } = rectangle.p1;
+        let Point { x: x_2, y: y_2 } = rectangle.p2;
+
+        let height = x_1 - x_2;
+        let width = y_1 - y_2;
+
+        let area = height * width;
+        println!("面积是:{}", area);
+    }
+
+    rect_area(rectangle);
+
+    fn square(point: Point, length: f32) -> Rectangle {
+        let new_point = Point {
+            x: point.x + length,
+            y: point.y + length,
+        };
+
+        Rectangle {
+            p1: point,
+            p2: new_point,
+        }
+    }
+
+    let new_rec = square(point,0.5);
+
+    println!("new rectangle is {:?}",new_rec);
 }
