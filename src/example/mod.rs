@@ -10,3 +10,4 @@ mod i_literals_and_operators;
 mod j_tuple;
 mod k_array_and_slice;
 mod l_struct;
+mod m_enum;
