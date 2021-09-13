@@ -11,3 +11,8 @@ mod j_tuple;
 mod k_array_and_slice;
 mod l_struct;
 mod m_enum;
+mod n_use;
+mod o_c_language_style;
+mod p_linked_list;
+mod q_constants;
+mod r_casting;
