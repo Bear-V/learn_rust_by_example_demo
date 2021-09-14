@@ -84,3 +84,23 @@ fn third() {
     // 试一试 ^ 注释掉 `vec.push(elem)` 这一行。
     println!("{:?}", vec);
 }
+
+//  别名
+#[test]
+#[allow(non_camel_case_types)]
+fn four() {
+    type NanoSecond = u64;
+    type Inch = u64;
+
+    type u64_t = u64;
+    // `NanoSecond` = `Inch` = `u64_t` = `u64`.
+    let nanoseconds: NanoSecond = 5 as u64_t;
+    let inches: Inch = 2 as u64_t;
+
+    // 注意类型别名*并不能*提供额外的类型安全，因为别名*并不是*新的类型。
+    println!("{} nanoseconds + {} inches = {} unit?",
+             nanoseconds,
+             inches,
+             nanoseconds + inches);
+
+}
